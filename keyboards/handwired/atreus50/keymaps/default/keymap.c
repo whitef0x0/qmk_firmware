@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.         ,----+----+----+----+----+----.
      TAB ,QUOT,COMM,DOT , P  , Y  ,           F  , G  , C  , R  , L  ,MINS,
   //|----+----+----+----+----+----|         |----+----+----+----+----+----|
-      X0 , A  , O  , E  , U  , I  ,           D  , H  , R  , N  , S  ,SLSH,
+      X0 , A  , O  , E  , U  , I  ,           D  , H  , T  , N  , S  ,SLSH,
   //|----+----+----+----+----+----|         |----+----+----+----+----+----|
      LSFT,SCLN, Q  , J  , K  , X  ,           B  , M  , W  , V  , Z  , X4 ,
   //|----+----+----+----+----+----|----+----|----+----+----+----+----+----|
@@ -110,16 +110,45 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //`----+----+----+----+----+----+----+----+----+----+----+----+----+----'
   ),
 
-/* Adjust (Lower + Raise)
- * |------+------+------+------+------+------.             ,------+------+------+------+------+------|
- * |      | Reset|      |      |      |      |             |      |      |      |      |      |  Del |
- * |------+------+------+------+------+------|             |------+------+------+------+------+------|
- * |      |      |      |Audoff|Aud on|AGnorm|             |AGswap|Qwerty|Colemk|Dvorak|      |      |
- * |------+------+------+------+------+------|             |------+------+------+------+------+------|
- * |      |Voice-|Voice+|Musoff|Mus on|      |             |      |      |      |      |      |      |
- * |------+------+------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
- * `-------------------------------------------------------------------------------------------------'
+
+/* Adjust Commands Explained:
+ * Hue Commands
+ *    RGB_HUI: Increase the Hue of the RGB backlight
+ *    RGB_HUD: Decrease the Hue of the RGB backlight
+ * Saturation Commands:
+ *    RGB_SAI: Increase the Saturation of the RGB backlight
+ *    RGB_SAD: Decrease the Saturation of the RGB backlight
+ * Color Value Commands:
+ *    RGB_VAI: Increase the Hex Value of the RGB backlight
+ *    RGB_VAD: Decrease the Hex Value of the RGB backlight
+ * RGB_SW: Toggle on/off RGB backlight
+ * RGB_MOD: Toggle RGB backlight modes
+ * RGB Backlight Modes: 
+ *    Mode 1: Static Light
+ *    Mode 2-5: Breathing
+ *    Mode 6-8: Rainbow Mood
+ *    Mode 9-14: Rainbow Swirl
+ *    Mode 15-20: Snake
+ *    Mode 21-23: Knight
+ *
+ *  Midion: Send midi notes when music mode is enabled
+ *  Midioff: Don't send midi notes when music mode is enabled
+ *  Voice+: Say letters aloud while typing
+ *  Voice-: Don't say letters alound while typing
+ * 
+ *  AGnorm: Don't Swap Alt with GUI keys (i.e. Win or Command Key)
+ *  AGswap: Swap Alt with GUI keys (i.e. Win or Command Key)
+ */
+/* Adjust (Lower + Raise)         
+ * |-------+-------+-------+-------+-------+-------.             ,-------+-------+-------+-------+-------+-------|
+ * |       | Reset |RGB_SW |RGB_MOD|RGB_HUD|RGB_HUD|             |SAT_DEC|SAT_INC|RGB_VAD|RGB_VAI|       |  Del  |
+ * |-------+-------+-------+-------+-------+-------.             ,-------+-------+-------+-------+-------+-------|
+ * |       |       |       |Audoff |Aud on |AGnorm |             |AGswap |Qwerty |Colemk |Dvorak |       |       |
+ * |-------+-------+-------+-------+-------+-------.             ,-------+-------+-------+-------+-------+-------|
+ * |       |Voice- |Voice+ |Musoff |Mus on |Midion |             |Midioff|       |       |       |       |       |
+ * |-------+-------+-------+-------+-------+-------.             ,-------+-------+-------+-------+-------+-------|
+ * |       |       |       |       |       |       |             |       |       |       |       |       |       |
+ * |-------+-------+-------+-------+-------+-------.             ,-------+-------+-------+-------+-------+-------|
  */
   [_ADJUST] = KEYMAP( \
     _______, RESET,   RGB_TOG, RGB_MOD, RGB_HUD, RGB_HUI,                   RGB_SAD, RGB_SAI, RGB_VAD, RGB_VAI, _______, KC_DEL, \
