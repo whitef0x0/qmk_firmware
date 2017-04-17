@@ -58,16 +58,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
 
-
-/* ws2812 RGB LED */
-#define RGB_DI_PIN C6
-#define RGBLIGHT_ANIMATIONS
-#define RGBLED_NUM 12     // Number of LEDs
-#define RGBLIGHT_HUE_STEP 10
-#define RGBLIGHT_SAT_STEP 17
-#define RGBLIGHT_VAL_STEP 17
-
-
 /*
  * Force NKRO
  *
@@ -159,5 +149,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define NO_ACTION_ONESHOT
 //#define NO_ACTION_MACRO
 //#define NO_ACTION_FUNCTION
+
+#ifdef SUBPROJECT_rev1
+    #include "rev1/config.h"
+#endif
+#ifdef SUBPROJECT_rev2
+    #include "rev2/config.h"
+#endif
 
 #endif
