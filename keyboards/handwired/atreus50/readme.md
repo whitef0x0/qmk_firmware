@@ -37,10 +37,12 @@ $ make
 
 5. Connect your keyboard to your computer over USB
 
-6. Flash your firmware onto your keyboard with `avrdude` 
+6. Flash your firmware onto your keyboard with `avrdude`, where keymap_name is the name of the keymap you want to use
 ```bash
-$ make avrdude
+$ make KEYMAP=<keymap_name> avrdude
 ```
+
+7. Press the reset button on your Atreus50 to flash your keyboard with your updated keymap.
 
 ## Compiling and loading the firmware
 
