@@ -11,7 +11,7 @@ The following pins are used:
 
 ## QuickStart
 
-###Mac OSX
+### Mac OSX
 1. Install AVR, avrdude and DFU-Programmer
 ```bash
 $ brew tap osx-cross/avr
@@ -25,9 +25,9 @@ $ brew install avrdude
 $ git clone https://github.com/qmk/qmk_firmware
 ```
 
-3. Navigate to the default Atreus50 keymap
+3. Navigate to the Atreus50 folder in qmk_firmware
 ```bash
-$ cd qmk_firmware/keyboards/handwired/atreus50/keymaps/default
+$ cd qmk_firmware/keyboards/handwired/atreus50/
 ```
 
 4. Build the firmware and ensure no errors are outputted
@@ -41,6 +41,7 @@ $ make
 ```bash
 $ make avrdude
 ```
+
 ## Compiling and loading the firmware
 
 To build the firmware, run `make`.
